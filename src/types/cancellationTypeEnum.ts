@@ -1,0 +1,4 @@
+export enum CancellationTypeEnum {
+  NOT_REFUNDABLE = 'NOT_REFUNDABLE',
+  FREE_CANCELLATION = 'FREE_CANCELLATION',
+}
