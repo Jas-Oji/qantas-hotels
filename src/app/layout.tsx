@@ -12,11 +12,7 @@ type RootLayoutProps = {
   children: ReactNode
 }
 
-const RootLayout: FC<RootLayoutProps> = ({
-  children,
-}: Readonly<{
-  children: ReactNode
-}>) => (
+const RootLayout: FC<RootLayoutProps> = ({ children }) => (
   <html lang="en">
     <body>
       <Registry>{children}</Registry>
