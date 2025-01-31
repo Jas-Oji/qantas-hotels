@@ -1,5 +1,6 @@
-import { render, screen } from '@testing-library/react'
 import RootLayout from './layout'
+
+import { render, screen } from '@testing-library/react'
 
 describe('RootLayout', () => {
   it('renders children correctly', () => {

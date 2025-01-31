@@ -1,6 +1,8 @@
 import { FC, ReactNode } from 'react'
 import type { Metadata } from 'next'
+
 import Registry from '@/components/Registery'
+
 import './globals.css'
 
 export const metadata: Metadata = {

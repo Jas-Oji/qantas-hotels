@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server'
 import { GET } from './route'
+
 import hotels from '@/data/hotels.json'
 
 jest.mock('next/server', () => ({
