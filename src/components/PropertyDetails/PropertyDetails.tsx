@@ -1,19 +1,31 @@
-import { Cancelation, Link, SubTitle, Title, Wrapper } from './PropertyDetails.styles'
+import PropertyRating from '../PropertyRating'
+import { Cancelation, Link, SubTitle, Title, TitleWrapper, Wrapper } from './PropertyDetails.styles'
 
-import { CancellationTypeEnum, Offer, Property } from '@/types'
+import { CancellationTypeEnum, Offer, Property, Rating } from '@/types'
 
 type PropertyDetailsProps = {
   title: Property['title']
   address: Property['address']
   offerName: Offer['name']
   cancellationType: CancellationTypeEnum
+  rating: Rating
 }
 
-const PropertyDetails = ({ title, address, offerName, cancellationType }: PropertyDetailsProps) => {
+const PropertyDetails = ({
+  title,
+  address,
+  offerName,
+  cancellationType,
+  rating,
+}: PropertyDetailsProps) => {
   return (
     <Wrapper>
       <div>
-        <Title>{title}</Title>
+        <TitleWrapper>
+          <Title>{title}</Title>
+          <PropertyRating rating={rating} />
+        </TitleWrapper>
+
         <SubTitle>{address.join(', ')}</SubTitle>
 
         <Link href="#">{offerName}</Link>

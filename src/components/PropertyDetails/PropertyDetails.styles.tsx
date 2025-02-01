@@ -7,6 +7,11 @@ export const Wrapper = styled.div`
   padding-top: 10px;
 `
 
+export const TitleWrapper = styled.div`
+  display: flex;
+  gap: 10px;
+`
+
 export const Title = styled.h1`
   font-size: 18px;
 `

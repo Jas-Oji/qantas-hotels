@@ -1,6 +1,6 @@
 import PropertyDetails from './PropertyDetails'
 
-import { CancellationTypeEnum } from '@/types'
+import { CancellationTypeEnum, RatingTypeEnum } from '@/types'
 import { render, screen } from '@testing-library/react'
 
 describe('PropertyDetails', () => {
@@ -9,6 +9,10 @@ describe('PropertyDetails', () => {
     address: ['123 Main St', 'City'],
     offerName: 'Special Offer',
     cancellationType: CancellationTypeEnum.FREE_CANCELLATION,
+    rating: {
+      ratingValue: 4,
+      ratingType: RatingTypeEnum.STAR,
+    },
   }
 
   it('should render title, address, and offer', () => {
