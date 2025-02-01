@@ -17,9 +17,9 @@ const useHotelsData = (): Result => {
 
     try {
       const response = await fetch('/api/hotels')
-      const { results } = await response.json()
+      const data = await response.json()
 
-      setHotelsData(results)
+      setHotelsData(data?.results || [])
     } catch {
       throw new Error('Failed to fetch')
     } finally {
