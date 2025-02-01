@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
 
 import { Hotel } from '@/types'
 
@@ -12,7 +12,7 @@ const useHotelsData = (): Result => {
   const [hotelsData, setHotelsData] = useState<Hotel[]>([])
   const [isLoading, setLoading] = useState<boolean>(false)
 
-  const fetchData = async () => {
+  const fetchData = useCallback(async () => {
     setLoading(true)
 
     try {
@@ -25,7 +25,7 @@ const useHotelsData = (): Result => {
     } finally {
       setLoading(false)
     }
-  }
+  }, [])
 
   return {
     fetchData,
