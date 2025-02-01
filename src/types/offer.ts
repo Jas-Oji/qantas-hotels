@@ -5,7 +5,7 @@ import type { Promotion } from './promotion'
 export type Offer = {
   name: string
   displayPrice: Price
-  savings: Price
+  savings: Price | null
   promotion: Promotion
   cancellationOption: CancellationOption
 }
