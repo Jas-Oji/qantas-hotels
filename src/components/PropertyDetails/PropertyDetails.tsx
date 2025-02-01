@@ -1,5 +1,6 @@
 import PropertyRating from '../PropertyRating'
 import { Cancelation, Link, SubTitle, Title, TitleWrapper, Wrapper } from './PropertyDetails.styles'
+import getAddress from './utils/getAddress'
 
 import { CancellationTypeEnum, Offer, Property, Rating } from '@/types'
 
@@ -25,7 +26,7 @@ const PropertyDetails = ({
         <PropertyRating rating={rating} />
       </TitleWrapper>
 
-      <SubTitle>{address.join(', ')}</SubTitle>
+      <SubTitle>{getAddress(address)}</SubTitle>
 
       <Link href="#">{offerName}</Link>
     </div>
