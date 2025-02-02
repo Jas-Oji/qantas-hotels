@@ -4,10 +4,9 @@ import hotelsData from '@/data/hotels.json'
 import { Hotel, SortEnum } from '@/types'
 
 const [hotel1, hotel2, hotel3] = hotelsData.results
+const mockHotelsData = [hotel1, hotel2, hotel3] as Hotel[]
 
 describe('getSortedItemsByPrice', () => {
-  const mockHotelsData = [hotel1, hotel2, hotel3] as Hotel[]
-
   it('should sort hotels in ascending order based on price', () => {
     const result = getSortedItemsByPrice(mockHotelsData, SortEnum.ASCENDING)
     expect(result[0].offer.displayPrice.amount).toBe(227)
