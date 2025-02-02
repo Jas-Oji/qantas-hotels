@@ -29,11 +29,14 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## What I Implemented
 
-- **Global State Management**: Used Context API to manage global state efficiently.
 - **Atomic Design**: Applied atomic design principles to ensure reusability of components.
-- **CSS-in-JS Approach**: Chose Styled-Components for styling within the Next.js application.
-- **Testing Strategy**: Used Jest and React Testing Library to ensure robust test coverage.
 - **Separation of Concerns**: Isolated business logic from UI by utilizing utility functions and custom React hooks.
+- **Global State Management**: Used Context API to manage global state efficiently.
+- **Testing Strategy**: Used Jest and React Testing Library to ensure robust test coverage.
+- **CSS-in-JS Approach**: Chose Styled-Components for styling within the Next.js application.
+- **Responsive UI**: Optimized the UI to be mobile friendly.
+
+unsplash.it is redundant thus I switched the image source to [picsum.photos](https://picsum.photos)
 
 ## Running Tests
 
@@ -48,7 +51,7 @@ yarn test
 While the core functionality is implemented, there is room for further enhancements:
 
 - The project has strong test coverage but could benefit from additional refinements and test cases.
-- Using tokens for color variables to improve maintainability
+- Using tokens for color & spacing variables to improve maintainability
 - Implementing loading and error handling
 - Extracting micro-components (e.g., a reusable Link component)
 
