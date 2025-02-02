@@ -21,9 +21,7 @@ const HotelsProvider: FC<HotelsProviderProps> = ({ children }) => {
     const sortedHotels =
       sortOrder === SortEnum.DEFAULT ? hotelsData : getSortedItemsByPrice(hotelsData, sortOrder)
 
-    const sortBy = (sortOrder: SortEnum) => {
-      setSortOrder(sortOrder)
-    }
+    const sortBy = (sortOrder: SortEnum) => setSortOrder(sortOrder)
 
     return {
       hotels: sortedHotels,
