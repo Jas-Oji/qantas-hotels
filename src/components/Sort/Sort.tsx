@@ -1,18 +1,20 @@
 import { FC } from 'react'
 import { Label } from './Sort.style'
 
+import { SortEnum } from '@/types'
+
 type SortProps = {
-  onChange: (sortOrder: string) => void
+  onChange: (sortOrder: SortEnum) => void
 }
 
 const Sort: FC<SortProps> = ({ onChange }) => (
   <Label>
     <p>Sort By</p>
 
-    <select name="sort" onChange={(e) => onChange(e.target.value)}>
-      <option value="">Select</option>
-      <option value="ascending">Price: Low to High</option>
-      <option value="descending">Price: High to Low</option>
+    <select name="sort" onChange={(e) => onChange(e.target.value as SortEnum)}>
+      <option value={SortEnum.DEFAULT}>Select</option>
+      <option value={SortEnum.ASCENDING}>Price: Low to High</option>
+      <option value={SortEnum.DESCENDING}>Price: High to Low</option>
     </select>
   </Label>
 )
