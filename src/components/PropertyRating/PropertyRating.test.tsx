@@ -1,5 +1,4 @@
 import PropertyRating from './PropertyRating'
-import exp from 'constants'
 
 import { RatingTypeEnum } from '@/types'
 import { render, screen } from '@testing-library/react'
