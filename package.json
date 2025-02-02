@@ -1,8 +1,14 @@
 {
   "name": "qantas-hotels",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "license": "MIT",
+  "author": "Jas Oji",
+  "description": "Qantas Hotels Code Challenge",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Jas-Oji/qantas-hotels"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
