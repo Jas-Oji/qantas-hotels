@@ -13,7 +13,7 @@ const ListingResult = ({ numberOfItems = 0 }: ListingResultProps) => {
   return (
     <Wrapper>
       <p>
-        <b data-testid="hotel-counts">{numberOfItems}</b> hotels in <b>Sydney</b>
+        <b data-testid="hotel-counts">{numberOfItems}</b> <i>hotels in</i> <b>Sydney</b>
       </p>
 
       <Sort onChange={sortBy} />
