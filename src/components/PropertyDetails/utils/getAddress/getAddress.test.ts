@@ -13,9 +13,9 @@ describe('getAddress', () => {
     expect(result).toBe('Old hotel building')
   })
 
-  test('should return "-" if address array is empty', () => {
+  test('should return null if address array is empty', () => {
     const result = getAddress([])
 
-    expect(result).toBe('-')
+    expect(result).toBe(null)
   })
 })
