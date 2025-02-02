@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { ImageWrapper, PropertyInfoWrapper, Wrapper } from './HotelsListing.styles'
+import { ImageWrapper, LoadingWrapper, PropertyInfoWrapper, Wrapper } from './HotelsListing.styles'
 
 import ListingResult from '@/components/ListingResult'
 import PropertyDetails from '@/components/PropertyDetails'
@@ -9,7 +9,15 @@ import ProportyPricing from '@/components/ProportyPricing'
 import useHotels from '@/hooks/useHotels'
 
 const HotelsListing: FC = () => {
-  const { hotels } = useHotels()
+  const { hotels, isLoading } = useHotels()
+
+  if (isLoading) {
+    return <LoadingWrapper>Loading...</LoadingWrapper>
+  }
+
+  if (!hotels.length) {
+    return null
+  }
 
   return (
     <div>
