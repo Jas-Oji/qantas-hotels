@@ -20,6 +20,11 @@ describe('useHotels', () => {
     })
   })
 
+  afterEach(() => {
+    mockedUseDataFetcher.mockClear()
+    jest.resetAllMocks()
+  })
+
   it('should return initial state', () => {
     const { result } = renderHook(() => useHotels(), {
       wrapper: ({ children }) => <HotelsProvider>{children}</HotelsProvider>,
