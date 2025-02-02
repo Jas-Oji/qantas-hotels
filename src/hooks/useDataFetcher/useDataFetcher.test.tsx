@@ -1,9 +1,9 @@
-import useHotelsData from './useHotelsData'
+import useDataFetcher from './useDataFetcher'
 
 import hotelsData from '@/data/hotels.json'
 import { act, renderHook, waitFor } from '@testing-library/react'
 
-describe('useHotelsData', () => {
+describe('useDataFetcher', () => {
   beforeEach(() => {
     global.fetch = jest.fn(() =>
       Promise.resolve({
@@ -19,7 +19,7 @@ describe('useHotelsData', () => {
   })
 
   it('should return initial state', async () => {
-    const { result } = renderHook(() => useHotelsData())
+    const { result } = renderHook(() => useDataFetcher())
 
     expect(result.current).toEqual({
       fetchData: expect.any(Function),
@@ -29,7 +29,7 @@ describe('useHotelsData', () => {
   })
 
   it('should set loading to true when fetching data', async () => {
-    const { result } = renderHook(() => useHotelsData())
+    const { result } = renderHook(() => useDataFetcher())
 
     act(() => {
       result.current.fetchData()
@@ -39,7 +39,7 @@ describe('useHotelsData', () => {
   })
 
   it('should fetch data', async () => {
-    const { result } = renderHook(() => useHotelsData())
+    const { result } = renderHook(() => useDataFetcher())
 
     act(() => {
       result.current.fetchData()
@@ -63,7 +63,7 @@ describe('useHotelsData', () => {
       } as Response)
     )
 
-    const { result } = renderHook(() => useHotelsData())
+    const { result } = renderHook(() => useDataFetcher())
 
     act(() => {
       result.current.fetchData()
@@ -77,7 +77,7 @@ describe('useHotelsData', () => {
   it('should throw an error when fetching data fails', async () => {
     global.fetch = jest.fn(() => Promise.reject(new Error('Failed to fetch')))
 
-    const { result } = renderHook(() => useHotelsData())
+    const { result } = renderHook(() => useDataFetcher())
 
     await expect(act(() => result.current.fetchData())).rejects.toThrow('Failed to fetch')
   })
