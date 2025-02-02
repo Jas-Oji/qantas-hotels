@@ -1,17 +1,23 @@
 'use client'
 
-import PageWrapper from '@/components/PageWrapper'
-import Image from 'next/image'
 import { FC } from 'react'
+import Image from 'next/image'
+
+import HotelsListing from '@/components/HotelsListing'
+import PageWrapper from '@/components/PageWrapper'
+
+import { HotelsProvider } from '@/context'
 
 const Page: FC = () => (
-  <div>
+  <HotelsProvider>
     <main>
       <PageWrapper>
         <Image src="/images/qantas-logo.png" alt="Qantas Logo" width={72} height={16} priority />
+
+        <HotelsListing />
       </PageWrapper>
     </main>
-  </div>
+  </HotelsProvider>
 )
 
 export default Page
