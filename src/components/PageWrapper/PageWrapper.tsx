@@ -1,11 +1,5 @@
 import { FC, ReactNode } from 'react'
-import styled from 'styled-components'
-
-const Wrapper = styled.section`
-  padding: 20px;
-  max-width: 900px;
-  margin: auto;
-`
+import { Wrapper } from './PageWrapper.styles'
 
 type PageWrapperProps = {
   children: ReactNode

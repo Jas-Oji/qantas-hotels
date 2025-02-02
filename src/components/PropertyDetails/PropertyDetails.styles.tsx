@@ -4,12 +4,22 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding-top: 10px;
+
+  @media (min-width: 480px) {
+    padding-top: 10px;
+  }
 `
 
 export const TitleWrapper = styled.div`
   display: flex;
+  flex-direction: column;
   gap: 10px;
+  padding-bottom: 10px;
+
+  @media (min-width: 576px) {
+    flex-direction: row;
+    padding-bottom: 4px;
+  }
 `
 
 export const Title = styled.h1`

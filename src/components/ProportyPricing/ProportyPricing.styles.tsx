@@ -3,13 +3,17 @@ import styled from 'styled-components'
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
   align-items: flex-end;
   gap: 2px;
+
+  @media (min-width: 480px) {
+    justify-content: flex-end;
+  }
 `
 
 export const PriceUnit = styled.div`
   font-size: 12px;
+  white-space: nowrap;
   color: gray;
 `
 

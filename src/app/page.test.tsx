@@ -29,7 +29,7 @@ describe('Page', () => {
     const logoElement = screen.getByAltText('Qantas Logo')
 
     expect(logoElement).toBeInTheDocument()
-    expect(logoElement).toHaveAttribute('width', '72')
-    expect(logoElement).toHaveAttribute('height', '16')
+    expect(logoElement).toHaveAttribute('width', '145')
+    expect(logoElement).toHaveAttribute('height', '28')
   })
 })

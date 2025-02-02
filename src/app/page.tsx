@@ -12,7 +12,7 @@ const Page: FC = () => (
   <HotelsProvider>
     <main>
       <PageWrapper>
-        <Image src="/images/qantas-logo.png" alt="Qantas Logo" width={72} height={16} priority />
+        <Image src="/images/qantas-logo.png" alt="Qantas Logo" width={145} height={28} priority />
 
         <HotelsListing />
       </PageWrapper>

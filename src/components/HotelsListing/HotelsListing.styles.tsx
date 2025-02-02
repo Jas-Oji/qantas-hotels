@@ -2,10 +2,14 @@ import styled from 'styled-components'
 
 export const Wrapper = styled.li`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
   gap: 20px;
-  margin-bottom: 1rem;
+  margin-bottom: 20px;
+
+  @media (min-width: 480px) {
+    flex-direction: row;
+  }
 `
 
 export const PropertyInfoWrapper = styled.div`
@@ -23,5 +27,18 @@ export const PropertyInfoWrapper = styled.div`
     width: 100%;
     height: 1px;
     background-color: #dfdfdf;
+  }
+`
+
+export const ImageWrapper = styled.div`
+  width: 100%;
+
+  @media (min-width: 480px) {
+    width: 145px;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
   }
 `

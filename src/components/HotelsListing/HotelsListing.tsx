@@ -1,14 +1,12 @@
 import { FC } from 'react'
+import { ImageWrapper, PropertyInfoWrapper, Wrapper } from './HotelsListing.styles'
 
 import ListingResult from '@/components/ListingResult'
 import PropertyDetails from '@/components/PropertyDetails'
 import PropertyImage from '@/components/PropertyImage'
 import ProportyPricing from '@/components/ProportyPricing'
 
-import { PropertyInfoWrapper, Wrapper } from '@/app/page.styles'
 import useHotels from '@/hooks/useHotels'
-
-// todo: move wrapper component
 
 const HotelsListing: FC = () => {
   const { hotels } = useHotels()
@@ -19,11 +17,13 @@ const HotelsListing: FC = () => {
       <ul>
         {hotels.map((hotel) => (
           <Wrapper key={hotel.id}>
-            <PropertyImage
-              src={hotel.property.previewImage.url}
-              alt={hotel.property.previewImage.caption}
-              promotionTitle={hotel.offer.promotion.title}
-            />
+            <ImageWrapper>
+              <PropertyImage
+                src={hotel.property.previewImage.url}
+                alt={hotel.property.previewImage.caption}
+                promotionTitle={hotel.offer.promotion.title}
+              />
+            </ImageWrapper>
 
             <PropertyInfoWrapper>
               <PropertyDetails
