@@ -1,5 +1,6 @@
-import { FC, ReactNode, useCallback, useEffect, useMemo, useState } from 'react'
+import { FC, ReactNode, useEffect, useMemo, useState } from 'react'
 import HotelsContext from './HotelsContext'
+import getSortedItemsByPrice from './utils'
 
 import useDataFetcher from '@/hooks/useDataFetcher'
 import { SortEnum } from '@/types'
@@ -16,30 +17,21 @@ const HotelsProvider: FC<HotelsProviderProps> = ({ children }) => {
     fetchData()
   }, [fetchData])
 
-  const hotels = useMemo(() => {
-    if (sortOrder === SortEnum.DEFAULT) {
-      return hotelsData
+  const value = useMemo(() => {
+    const sortedHotels =
+      sortOrder === SortEnum.DEFAULT ? hotelsData : getSortedItemsByPrice(hotelsData, sortOrder)
+
+    const sortBy = (sortOrder: SortEnum) => {
+      setSortOrder(sortOrder)
     }
 
-    return sortOrder === SortEnum.ASCENDING
-      ? hotelsData.sort((a, b) => a.offer.displayPrice.amount - b.offer.displayPrice.amount)
-      : hotelsData.sort((a, b) => b.offer.displayPrice.amount - a.offer.displayPrice.amount)
-  }, [hotelsData, sortOrder])
-
-  const sortBy = useCallback(
-    (sortOrder: SortEnum) => {
-      setSortOrder(sortOrder)
-    },
-    [setSortOrder]
-  )
-
-  const value = useMemo(() => {
     return {
-      hotels,
+      hotels: sortedHotels,
       isLoading,
+      sortOrder,
       sortBy,
     }
-  }, [hotels, isLoading, sortBy, sortOrder])
+  }, [hotelsData, isLoading, sortOrder, setSortOrder])
 
   return <HotelsContext.Provider value={value}>{children}</HotelsContext.Provider>
 }
