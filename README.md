@@ -53,6 +53,7 @@ While the core functionality is implemented, there is room for further enhanceme
 - Using tokens for color & spacing variables to improve maintainability
 - Implementing loading and error handling
 - Extracting micro-components (e.g., a reusable Link component)
+- Improving accessibility to ensure a more inclusive user experience
 
 ## Closing Notes
 
