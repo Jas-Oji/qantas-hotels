@@ -5,6 +5,8 @@ import Registry from '@/components/Registery'
 
 import './globals.css'
 
+import { Analytics } from '@vercel/analytics/react'
+
 export const metadata: Metadata = {
   title: 'Qantas Hotels',
   description: 'Code Challenge',
@@ -18,6 +20,7 @@ const RootLayout: FC<RootLayoutProps> = ({ children }) => (
   <html lang="en">
     <body>
       <Registry>{children}</Registry>
+      <Analytics />
     </body>
   </html>
 )
