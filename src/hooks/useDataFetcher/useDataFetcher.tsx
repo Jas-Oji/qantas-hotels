@@ -1,9 +1,9 @@
 import { useCallback, useState } from 'react'
 
-import { Hotel } from '@/types'
+import { Hotel, SortEnum } from '@/types'
 
 type Result = {
-  fetchData: () => void
+  fetchData: (sort?: SortEnum) => void
   hotelsData: Hotel[]
   isLoading: boolean
 }
@@ -12,11 +12,11 @@ const useHotelsData = (): Result => {
   const [hotelsData, setHotelsData] = useState<Hotel[]>([])
   const [isLoading, setLoading] = useState<boolean>(false)
 
-  const fetchData = useCallback(async () => {
+  const fetchData = useCallback(async (sort?: SortEnum) => {
     setLoading(true)
 
     try {
-      const response = await fetch('/api/hotels')
+      const response = await fetch(`/api/hotels${sort ? `?sort=${sort}` : ''}`)
       const data = await response.json()
 
       setHotelsData(data?.results || [])
