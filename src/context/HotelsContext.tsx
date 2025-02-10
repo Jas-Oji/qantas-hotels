@@ -13,7 +13,7 @@ const HotelsContext = createContext<Context>({
   hotels: [],
   isLoading: false,
   sortOrder: SortEnum.DEFAULT,
-  sortBy: () => [],
+  sortBy: () => {},
 })
 
 export default HotelsContext

@@ -1,6 +1,6 @@
-import { FC, ReactNode, useEffect, useMemo, useState } from 'react'
+import { FC, ReactNode, useEffect, useMemo } from 'react'
+import { useRouter, useSearchParams } from 'next/navigation'
 import HotelsContext from './HotelsContext'
-import getSortedItemsByPrice from './utils'
 
 import useDataFetcher from '@/hooks/useDataFetcher'
 import { SortEnum } from '@/types'
@@ -11,25 +11,27 @@ type HotelsProviderProps = {
 
 const HotelsProvider: FC<HotelsProviderProps> = ({ children }) => {
   const { fetchData, hotelsData, isLoading } = useDataFetcher()
-  const [sortOrder, setSortOrder] = useState(SortEnum.DEFAULT)
+  const router = useRouter()
+
+  const searchParams = useSearchParams()
+  const sortOrder = searchParams.get('sort') as SortEnum
 
   useEffect(() => {
-    fetchData()
-  }, [fetchData])
+    fetchData(sortOrder)
+  }, [fetchData, sortOrder])
 
   const value = useMemo(() => {
-    const sortedHotels =
-      sortOrder === SortEnum.DEFAULT ? hotelsData : getSortedItemsByPrice(hotelsData, sortOrder)
-
-    const sortBy = (sortOrder: SortEnum) => setSortOrder(sortOrder)
+    const sortBy = (sort: SortEnum) => {
+      router.push(`?sort=${sort}`)
+    }
 
     return {
-      hotels: sortedHotels,
+      hotels: hotelsData,
       isLoading,
       sortOrder,
       sortBy,
     }
-  }, [hotelsData, isLoading, sortOrder, setSortOrder])
+  }, [hotelsData, isLoading, sortOrder, router])
 
   return <HotelsContext.Provider value={value}>{children}</HotelsContext.Provider>
 }
