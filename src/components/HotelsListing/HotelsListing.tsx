@@ -1,4 +1,5 @@
-import { FC } from 'react'
+import { FC, useEffect } from 'react'
+import { useSearchParams } from 'next/navigation'
 import { ImageWrapper, LoadingWrapper, PropertyInfoWrapper, Wrapper } from './HotelsListing.styles'
 
 import ListingResult from '@/components/ListingResult'
@@ -6,24 +7,32 @@ import PropertyDetails from '@/components/PropertyDetails'
 import PropertyImage from '@/components/PropertyImage'
 import ProportyPricing from '@/components/ProportyPricing'
 
-import useHotels from '@/hooks/useHotels'
+import useDataFetcher from '@/hooks/useDataFetcher'
+import { SortEnum } from '@/types'
 
 const HotelsListing: FC = () => {
-  const { hotels, isLoading } = useHotels()
+  const { fetchData, hotelsData, isLoading } = useDataFetcher()
+
+  const searchParams = useSearchParams()
+  const sortOrder = searchParams.get('sort') as SortEnum
+
+  useEffect(() => {
+    fetchData(sortOrder)
+  }, [fetchData, sortOrder])
 
   if (isLoading) {
     return <LoadingWrapper>Loading...</LoadingWrapper>
   }
 
-  if (!hotels.length) {
+  if (!hotelsData.length) {
     return null
   }
 
   return (
     <div>
-      <ListingResult numberOfItems={hotels.length} />
+      <ListingResult numberOfItems={hotelsData.length} />
       <ul>
-        {hotels.map((hotel) => (
+        {hotelsData.map((hotel) => (
           <Wrapper key={hotel.id}>
             <ImageWrapper>
               <PropertyImage

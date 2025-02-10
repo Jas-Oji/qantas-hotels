@@ -1,16 +1,14 @@
 import { FC } from 'react'
 import { Label } from './Sort.style'
 
-import useHotels from '@/hooks/useHotels'
 import { SortEnum } from '@/types'
 
 type SortProps = {
+  sortOrder: SortEnum
   onChange: (sortOrder: SortEnum) => void
 }
 
-const Sort: FC<SortProps> = ({ onChange }) => {
-  const { sortOrder } = useHotels()
-
+const Sort: FC<SortProps> = ({ sortOrder, onChange }) => {
   return (
     <Label>
       <p>Sort By</p>
